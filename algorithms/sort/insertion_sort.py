@@ -11,7 +11,7 @@ class InsertionSorter:
         """Performs insertion sort on the array."""
         n = len(self.arr)
         if n == 0:
-            return []  # Return early for an empty array
+            return []
 
         for i in range(1, n):
             key = self.arr[i]
