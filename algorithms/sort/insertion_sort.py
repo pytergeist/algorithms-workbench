@@ -13,13 +13,13 @@ class InsertionSorter:
         if n == 0:
             return []
 
-        for curr_idx in range(1, n):
-            key = self.array[curr_idx]
-            insertion_idx = curr_idx - 1
-            while insertion_idx >= 0 and key < self.array[insertion_idx]:
-                self.array[insertion_idx + 1] = self.array[insertion_idx]
-                insertion_idx -= 1
-            self.array[insertion_idx + 1] = key
+        for i in range(1, n):
+            key = self.array[i]
+            j = i - 1
+            while j >= 0 and key < self.array[j]:
+                self.array[j + 1] = self.array[j]
+                j -= 1
+            self.array[j + 1] = key
 
         return self.array
 
