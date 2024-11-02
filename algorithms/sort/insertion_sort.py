@@ -5,23 +5,23 @@ class InsertionSorter:
     def __init__(self, array: List[int]):
         if not isinstance(array, list):
             raise TypeError("Expected a list for 'arr'")
-        self.arr = array
+        self.array = array
 
     def sort(self) -> List[int]:
         """Performs insertion sort on the array."""
-        n = len(self.arr)
+        n = len(self.array)
         if n == 0:
             return []
 
-        for i in range(1, n):
-            key = self.arr[i]
-            j = i - 1
-            while j >= 0 and key < self.arr[j]:
-                self.arr[j + 1] = self.arr[j]
-                j -= 1
-            self.arr[j + 1] = key
+        for curr_idx in range(1, n):
+            key = self.array[curr_idx]
+            insertion_idx = curr_idx - 1
+            while insertion_idx >= 0 and key < self.array[insertion_idx]:
+                self.array[insertion_idx + 1] = self.array[insertion_idx]
+                insertion_idx -= 1
+            self.array[insertion_idx + 1] = key
 
-        return self.arr
+        return self.array
 
     def get_sorted(self) -> List[int]:
         """Returns a sorted copy without modifying the original array."""
