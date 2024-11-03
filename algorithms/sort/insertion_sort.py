@@ -29,7 +29,7 @@ class InsertionSorter:
 
 
 if __name__ == "__main__":
-    arr = [3, 0, 9, 4, 8, 3, 0, 2]
+    arr = [3, 0, 9, 4, 8, 3, 0, 2, 4, 5, 6, 3, 34, 5, 6, 23]
     sorter = InsertionSorter(arr)
     sorted_arr = sorter.get_sorted()
     print("Sorted array:", sorted_arr)
