@@ -41,7 +41,7 @@ public:
     if (!heap.empty()) {
       return heap[0];
     } else {
-      return INT_MIN;
+      throw std::runtime_error("Heap is empty! Cannot peek.");
     }
   }
 
