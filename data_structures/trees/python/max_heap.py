@@ -28,7 +28,7 @@ class MaxHeap:
             idx = parent_idx
             parent_idx = self._parent_idx(idx)
 
-    def _heapify_down(self, idx: int):
+    def _heapify_down(self, idx: int) -> None:
         heap_size = len(self.heap)
 
         while True:
@@ -51,11 +51,11 @@ class MaxHeap:
             else:
                 break
 
-    def push(self, val: int):
+    def push(self, val: int) -> None:
         self.heap.append(val)
         self._heapify_up(len(self.heap) - 1)
 
-    def pop(self):
+    def pop(self) -> None:
         if not self.heap:
             return None
 
@@ -67,12 +67,12 @@ class MaxHeap:
 
         return max_value
 
-    def build_heap(self, values: List[int]):
+    def build_heap(self, values: List[int]) -> None:
         self.heap = values[:]
         for idx in range(len(self.heap) // 2 - 1, -1, -1):
             self._heapify_down(idx)
 
-    def peek(self):
+    def peek(self) -> int:
         return self.heap[0] if self.heap else None
 
 

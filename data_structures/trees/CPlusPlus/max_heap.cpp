@@ -5,11 +5,11 @@ using namespace std;
 
 class MaxHeap {
 public:
-  vector<int> heap;
+  std::vector<int> heap;
   size_t heap_size;
 
   void build_heap(vector<int> values) {
-    vector<int> heap = values;
+    this->heap = values;
     int i;
     for (i = heap.size() - 1; i >= 0; i--) {
       this->heapify_down(i);
@@ -39,10 +39,9 @@ public:
 
   int peek() {
     if (!heap.empty()) {
-        return heap[0];
-    }
-    else {
-        return INT_MIN;
+      return heap[0];
+    } else {
+      return INT_MIN;
     }
   }
 
@@ -91,5 +90,35 @@ private:
 
 int main() {
   MaxHeap mh;
-  mh.test_parent_idx();
-};
+
+  // Build heap from a vector
+  std::vector<int> values = {3, 1, 5, 2, 8, 10};
+  mh.build_heap(values);
+  std::cout << "Heap after build_heap: ";
+  for (int i : mh.heap) {
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+
+  // Push a new value
+  mh.push(7);
+  std::cout << "Heap after pushing 7: ";
+  for (int i : mh.heap) {
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+
+  // Peek at the maximum value
+  std::cout << "Peek: " << mh.peek() << std::endl;
+
+  // Pop the maximum value
+  int largest = mh.pop();
+  std::cout << "Popped: " << largest << std::endl;
+  std::cout << "Heap after pop: ";
+  for (int i : mh.heap) {
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+
+  return 0;
+}
