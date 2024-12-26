@@ -1,2 +1,2 @@
 # algorithms-workbench
-A reference repository for the implementation of common algorithms in python
+A reference repository for the implementation of common algorithms in python and CPlusPlus
