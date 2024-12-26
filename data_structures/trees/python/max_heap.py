@@ -90,5 +90,3 @@ if __name__ == "__main__":
     largest = mh.pop()
     print("Popped:", largest)
     print("Heap after pop:", mh.heap)
-
-
