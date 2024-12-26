@@ -11,7 +11,7 @@ public:
   void build_heap(vector<int> values) {
     this->heap = values;
     int i;
-    for (i = heap.size() - 1; i >= 0; i--) {
+    for (i = floor(heap.size() / 2) - 1; i >= 0; i--) {
       this->heapify_down(i);
     }
   }
@@ -71,7 +71,7 @@ private:
       int largest_idx = idx;
 
       if (left_idx<heap_size &&this->heap[left_idx]> this->heap[largest_idx]) {
-        largest_idx = idx;
+        largest_idx = left_idx;
       }
       if (right_idx<heap_size &&this->heap[right_idx]> this
               ->heap[largest_idx]) {
