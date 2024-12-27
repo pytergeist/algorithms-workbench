@@ -1,9 +1,10 @@
-from typing import List
+from typing import List, Optional
 
 
 class MaxHeap:
     def __init__(self) -> None:
         self.heap = []
+        self.built = False
 
     @staticmethod
     def _parent_idx(idx: int) -> int:
@@ -28,8 +29,10 @@ class MaxHeap:
             idx = parent_idx
             parent_idx = self._parent_idx(idx)
 
-    def _heapify_down(self, idx: int) -> None:
-        heap_size = len(self.heap)
+    def _heapify_down(self, idx: int, heap_size: Optional[int] = None) -> None:
+
+        if heap_size is None:
+            heap_size = len(self.heap)
 
         while True:
             left_idx = self._left_child_idx(idx)
@@ -71,15 +74,23 @@ class MaxHeap:
         self.heap = values[:]
         for idx in range(len(self.heap) // 2 - 1, -1, -1):
             self._heapify_down(idx)
+        self.built = True
 
     def peek(self) -> int:
         return self.heap[0] if self.heap else None
+
+    def heap_sort(self):
+        assert self.built, "Please build heap with the build_heap method before sorting"
+        heap_size = len(self.heap)
+        for i in range(heap_size - 1, 0, -1):
+            self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
+            self._heapify_down(0, i)
 
 
 if __name__ == "__main__":
     mh = MaxHeap()
 
-    mh.build_heap([3, 1, 5, 2, 8, 10])
+    mh.build_heap([3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2])
     print("Heap after build_heap:", mh.heap)
 
     mh.push(7)
@@ -90,3 +101,10 @@ if __name__ == "__main__":
     largest = mh.pop()
     print("Popped:", largest)
     print("Heap after pop:", mh.heap)
+
+    print("\n--- Testing heap_sort ---")
+    mh.build_heap([3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2])
+    print("Heap before heap_sort:", mh.heap)
+
+    mh.heap_sort()
+    print("Heap after heap_sort:", mh.heap)
