@@ -45,6 +45,20 @@ public:
     }
   }
 
+  void heap_sort() {
+    if (heap.empty()) {
+      throw std::runtime_error(
+          "Heap is empty! Please build heap before sorting.");
+    }
+
+    heap_size = this->heap.size();
+    int i;
+    for (i = heap_size - 1; i >= 0; i--) {
+      swap(this->heap[0], this->heap[i]);
+      this->heapify_down(0, i);
+    }
+  }
+
 private:
   int parent_idx(int idx) { return floor((idx - 1) / 2); }
 
@@ -93,8 +107,7 @@ private:
 int main() {
   MaxHeap mh;
 
-  // Build heap from a vector
-  std::vector<int> values = {3, 1, 5, 2, 8, 10};
+  std::vector<int> values = {3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2};
   mh.build_heap(values);
   std::cout << "Heap after build_heap: ";
   for (int i : mh.heap) {
@@ -102,7 +115,6 @@ int main() {
   }
   std::cout << std::endl;
 
-  // Push a new value
   mh.push(7);
   std::cout << "Heap after pushing 7: ";
   for (int i : mh.heap) {
@@ -110,13 +122,30 @@ int main() {
   }
   std::cout << std::endl;
 
-  // Peek at the maximum value
   std::cout << "Peek: " << mh.peek() << std::endl;
 
-  // Pop the maximum value
   int largest = mh.pop();
   std::cout << "Popped: " << largest << std::endl;
   std::cout << "Heap after pop: ";
+  for (int i : mh.heap) {
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+
+  std::cout << "\n--- Testing heap_sort() ---" << std::endl;
+
+  std::vector<int> new_values = {3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2};
+  mh.build_heap(new_values);
+
+  std::cout << "Heap before sorting: ";
+  for (int i : mh.heap) {
+    std::cout << i << " ";
+  }
+  std::cout << std::endl;
+
+  mh.heap_sort();
+
+  std::cout << "Heap after sorting:  ";
   for (int i : mh.heap) {
     std::cout << i << " ";
   }
