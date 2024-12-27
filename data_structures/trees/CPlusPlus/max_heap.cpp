@@ -62,8 +62,10 @@ private:
     }
   }
 
-  void heapify_down(int idx) {
-    heap_size = this->heap.size();
+  void heapify_down(int idx, int heap_size = -1) {
+    if (heap_size == -1) {
+      heap_size = this->heap.size();
+    }
 
     while (true) {
       int left_idx = this->left_child_idx(idx);
