@@ -1,4 +1,4 @@
-from typing import List, Optional
+from typing import List, Optional, Tuple, Any
 
 
 class MaxHeap:
@@ -54,7 +54,7 @@ class MaxHeap:
             else:
                 break
 
-    def push(self, val: int) -> None:
+    def push(self, val: int | Tuple[Any, int]) -> None:
         self.heap.append(val)
         self._heapify_up(len(self.heap) - 1)
 
