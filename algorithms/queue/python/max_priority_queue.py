@@ -54,7 +54,7 @@ if __name__ == "__main__":
         ("Server restart", 8),
         ("Low-level cleanup", 1),
         ("Apply security patch", 10),
-        ("Handle customer request #2", 5)
+        ("Handle customer request #2", 5),
     ]
 
     for description, prio in tasks:
@@ -69,10 +69,7 @@ if __name__ == "__main__":
     print("All tasks processed. Is queue empty?", pq.is_empty())
 
     print("\n--- Random Example ---\n")
-    random_tasks = [
-        (f"Random task {i}", random.randint(1, 100))
-        for i in range(5)
-    ]
+    random_tasks = [(f"Random task {i}", random.randint(1, 100)) for i in range(5)]
     for desc, priority in random_tasks:
         pq.enqueue(desc, priority)
         print(f"Enqueued: '{desc}' with priority {priority}")
@@ -82,11 +79,3 @@ if __name__ == "__main__":
         print("Dequeued:", pq.dequeue())
 
     print("Done!")
-
-
-
-
-
-
-
-
