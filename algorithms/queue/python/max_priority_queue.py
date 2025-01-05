@@ -1,4 +1,4 @@
-from typing import List, Any
+from typing import Any, List
 
 from data_structures.trees.python import MaxHeap
 
