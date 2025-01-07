@@ -104,53 +104,53 @@ private:
   }
 };
 
-int main() {
-  MaxHeap mh;
-
-  std::vector<int> values = {3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2};
-  mh.build_heap(values);
-  std::cout << "Heap after build_heap: ";
-  for (int i : mh.heap) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-
-  mh.push(7);
-  std::cout << "Heap after pushing 7: ";
-  for (int i : mh.heap) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-
-  std::cout << "Peek: " << mh.peek() << std::endl;
-
-  int largest = mh.pop();
-  std::cout << "Popped: " << largest << std::endl;
-  std::cout << "Heap after pop: ";
-  for (int i : mh.heap) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-
-  std::cout << "\n--- Testing heap_sort() ---" << std::endl;
-
-  std::vector<int> new_values = {3,  1,  5,   2, 8, 10, 193,
-                                 88, 79, 204, 1, 4, 5,  2};
-  mh.build_heap(new_values);
-
-  std::cout << "Heap before sorting: ";
-  for (int i : mh.heap) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-
-  mh.heap_sort();
-
-  std::cout << "Heap after sorting:  ";
-  for (int i : mh.heap) {
-    std::cout << i << " ";
-  }
-  std::cout << std::endl;
-
-  return 0;
-}
+//int main() {
+//  MaxHeap mh;
+//
+//  std::vector<int> values = {3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2};
+//  mh.build_heap(values);
+//  std::cout << "Heap after build_heap: ";
+//  for (int i : mh.heap) {
+//    std::cout << i << " ";
+//  }
+//  std::cout << std::endl;
+//
+//  mh.push(7);
+//  std::cout << "Heap after pushing 7: ";
+//  for (int i : mh.heap) {
+//    std::cout << i << " ";
+//  }
+//  std::cout << std::endl;
+//
+//  std::cout << "Peek: " << mh.peek() << std::endl;
+//
+//  int largest = mh.pop();
+//  std::cout << "Popped: " << largest << std::endl;
+//  std::cout << "Heap after pop: ";
+//  for (int i : mh.heap) {
+//    std::cout << i << " ";
+//  }
+//  std::cout << std::endl;
+//
+//  std::cout << "\n--- Testing heap_sort() ---" << std::endl;
+//
+//  std::vector<int> new_values = {3,  1,  5,   2, 8, 10, 193,
+//                                 88, 79, 204, 1, 4, 5,  2};
+//  mh.build_heap(new_values);
+//
+//  std::cout << "Heap before sorting: ";
+//  for (int i : mh.heap) {
+//    std::cout << i << " ";
+//  }
+//  std::cout << std::endl;
+//
+//  mh.heap_sort();
+//
+//  std::cout << "Heap after sorting:  ";
+//  for (int i : mh.heap) {
+//    std::cout << i << " ";
+//  }
+//  std::cout << std::endl;
+//
+//  return 0;
+//}
