@@ -4,8 +4,7 @@
 
 using namespace std;
 
-
-int partition (vector<int>& array, int left, int right) {
+int partition(vector<int> &array, int left, int right) {
   int pivot_value = array[right];
   int i = left - 1;
   int j;
@@ -19,7 +18,7 @@ int partition (vector<int>& array, int left, int right) {
   return i + 1;
 }
 
-void quickSort (vector<int>& array, int left, int right) {
+void quickSort(vector<int> &array, int left, int right) {
   if (left < right) {
     int pivot_index = partition(array, left, right);
     quickSort(array, left, pivot_index - 1);
@@ -27,12 +26,11 @@ void quickSort (vector<int>& array, int left, int right) {
   }
 }
 
-
-void printVector(const vector<int>& arr) {
-    for (int val : arr) {
-        cout << val << " ";
-    }
-    cout << endl;
+void printVector(const vector<int> &arr) {
+  for (int val : arr) {
+    cout << val << " ";
+  }
+  cout << endl;
 }
 
 int main() {

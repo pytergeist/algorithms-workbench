@@ -134,7 +134,8 @@ int main() {
 
   std::cout << "\n--- Testing heap_sort() ---" << std::endl;
 
-  std::vector<int> new_values = {3, 1, 5, 2, 8, 10, 193, 88, 79, 204, 1, 4, 5, 2};
+  std::vector<int> new_values = {3,  1,  5,   2, 8, 10, 193,
+                                 88, 79, 204, 1, 4, 5,  2};
   mh.build_heap(new_values);
 
   std::cout << "Heap before sorting: ";
