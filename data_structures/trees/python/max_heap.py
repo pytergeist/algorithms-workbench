@@ -80,7 +80,9 @@ class MaxHeap:
         return self.heap[0] if self.heap else None
 
     def heap_sort(self):
-        assert self.built, "Please build heap with the build_heap method before sorting"
+        assert self.built, """
+        Please build heap with the build_heap method before sorting
+        """
         heap_size = len(self.heap)
         for i in range(heap_size - 1, 0, -1):
             self.heap[0], self.heap[i] = self.heap[i], self.heap[0]
